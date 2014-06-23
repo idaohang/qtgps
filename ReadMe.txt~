@@ -1,0 +1,31 @@
+This program utilizes the GPSD daemon to read GPS data from satellites around the receiver’s current location. It is designed to work with a Raspberry Pi unit connected to a GPS dongle but can work on any Linux platform.
+
+
+To compile and run: You will need both a GPS receiver and the Qt development libraries installed.
+
+1) Install the necessary libraries: 
+	"# yum install gpsd gpsd-devel"
+
+2) Kill all previouly running gpsd processes: 
+	"# killall gpsd"
+
+3) cd to the program's directory and compile: "# make clean; make".
+
+4) Start the gps receiver: 
+	"# gpsd /dev/ttyUSB -F /var/run/gpsd.sock"
+
+5) Check whether device is running by via "ps auxw".
+
+6) The program defaults to GUI mode. Use the -t flag to run the program in terminal mode.
+
+
+GUI MODE:
+
+1) Click connect to start polling the receiver and displaying data. The window will update automatically.
+
+2) Click disconnect to stop polling.
+
+
+TERMINAL MODE:
+
+1) The program starts polling the receiver and printing data to the console automatically. Press the 'q' key to exit.
